@@ -140,6 +140,8 @@ Response:
 
 HTTP Status Code 200 (OK), com a lista de pacientes.
 
+--------------------------------
+
 ```http
   GET /api/pacientes/{id}
 ```
