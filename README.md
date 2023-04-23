@@ -121,13 +121,13 @@ HTTP Status Code 404 (Not Found) em caso de não ser encontrado registro com o c
 | `status` | `ENUM` |  values: ['aguardando_atendimento', 'em_atendimento', 'atendido', 'nao_atendido'] - defaultValue: 'nao_atendido' |
 
 
-#### Atualiza Status de um paciente só serão aceitos as strings descrita no status, caso seja enviado um status diferente o sistema irá retornar um erro.
+Atualiza Status de um paciente só serão aceitos as strings descrita no status, caso seja enviado um status diferente o sistema irá retornar um erro.
 
 
 --------------------------------
 
-
-#### Recebe todos os pacientes cadastrados na base, sendo possível filtrar via "query params". 
+#### Listar todos os pacientes
+Recebe todos os pacientes cadastrados na base, sendo possível filtrar via "query params". 
 Exemplo: /api/pacientes?status=atendido
 O sistema irá listar todos os pacientes que se encaixe no status passado via query params.
 
