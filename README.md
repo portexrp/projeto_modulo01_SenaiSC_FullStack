@@ -12,6 +12,7 @@ O sistema foi projetado para atender as demandas internas do Hospital JSPost Exp
 ```http
   POST /api/pacientes
 ```
+No corpo da request, informar objeto json com os campos
 
 | Parâmetro   | Tipo       | Descrição                           |
 | :---------- | :--------- | :---------------------------------- |
@@ -80,6 +81,8 @@ HTTP Status Code 409 (Conflict) em caso de CPF já cadastrado
   PUT /api/pacientes/{id}
 ```
 
+No corpo da request, informar objeto json com os campos
+
 | Parâmetro   | Tipo       | Descrição                                   |
 | :---------- | :--------- | :------------------------------------------ |
 | `id`      | `INTEGER` | **Obrigatório**. O ID do Paciente que você quer atualizar |
@@ -115,19 +118,21 @@ HTTP Status Code 404 (Not Found) em caso de não ser encontrado registro com o c
   PUT /api/pacientes/{id}/status=""
 ```
 
+No corpo da request, informar objeto json com os campos
+
 | Parâmetro   | Tipo       | Descrição                                   |
 | :---------- | :--------- | :------------------------------------------ |
 | `id`      | `INTEGER` | **Obrigatório**. O ID do Paciente que você quer atualizar |
 | `status` | `ENUM` |  values: ['aguardando_atendimento', 'em_atendimento', 'atendido', 'nao_atendido'] - defaultValue: 'nao_atendido' |
 
 
-Atualiza Status de um paciente só serão aceitos as strings descrita no status, caso seja enviado um status diferente o sistema irá retornar um erro.
+#### Atualiza Status de um paciente só serão aceitos as strings descrita no status, caso seja enviado um status diferente o sistema irá retornar um erro.
 
 
 --------------------------------
 
-#### Listar todos os pacientes
-Recebe todos os pacientes cadastrados na base, sendo possível filtrar via "query params". 
+
+#### Recebe todos os pacientes cadastrados na base, sendo possível filtrar via "query params". 
 Exemplo: /api/pacientes?status=atendido
 O sistema irá listar todos os pacientes que se encaixe no status passado via query params.
 
@@ -139,8 +144,6 @@ O sistema irá listar todos os pacientes que se encaixe no status passado via qu
 Response: 
 
 HTTP Status Code 200 (OK), com a lista de pacientes.
-
---------------------------------
 
 ```http
   GET /api/pacientes/{id}
@@ -182,3 +185,295 @@ HTTP Status Code 404 (Not Found) em caso de requisição com código não existe
 ```http
   POST /api/medicos
 ```
+No corpo da request, informar objeto json com os campos
+
+| Parâmetro   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+| `name` | `string` | **Obrigatório**. Nome  |
+| `gender` | `string` |  Gênero |
+| `birthday` | `string` | **Obrigatório**. Data Nascimento formato(01/01/2000) |
+| `cpf` | `string` | **Obrigatório**. CPF |
+| `phone` | `string` |  Telefone |
+| `college` | `string` | **Obrigatório**. Instituição de ensino superior  |
+| `crm` | `string` | **Obrigatório**. CRM |
+| `specialization` | `ENUM` |  values: ['clínico_geral', 'anestesista', 'dermatologia', 'ginecologia', 'neurologia', 'pediatria', 'psiquiatria', 'ortopedia'] defaultValue: clínico_geral' |
+| `status` | `ENUM` |  values: ['ativo','inativo'],    defaultValue: 'ativo' |
+| `servicesPerdomed` | `string` |  defaultValue: '0' |
+
+```http
+
+```http
+Exemplo:
+
+{
+	"name": "Reinaldo Porto",
+	"gender": "Masculino",
+	"birthday": "01/12/1988",
+	"cpf":"12345678901",
+	"phone":"16-90000 0000",
+	"college":"USP",
+	"crm":"123456"	
+}
+
+Retorno:
+
+{
+	"msg": "Cadastro Reinaldo Porto efetuado com sucesso!",
+	"dados": {
+		"specialization": "clínico_geral",
+		"id": 3,
+		"name": "Reinaldo Porto",
+		"gender": "Masculino",
+		"birthday": "1988-01-12",
+		"cpf": "12345678901",
+		"phone": "16-90000 0000",
+		"college": "USP",
+		"crm": "123456",
+		"status": "ativo",
+		"servicesPerdomed": "0",
+		"updatedAt": "2023-04-24T23:09:11.851Z",
+		"createdAt": "2023-04-24T23:09:11.851Z"
+	}
+}
+
+
+```
+Response: 
+
+HTTP Status Code 201 (CREATED) 
+
+HTTP Status Code 400 (Bad Request)
+
+HTTP Status Code 409 (Conflict) em caso de CPF já cadastrado
+
+--------------------------------
+
+#### Atualiza um médico
+
+```http
+  PUT /api/medicos/{id}
+```
+No corpo da request, informar objeto json com os campos
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `name` | `string` |  Nome  |
+| `gender` | `string` |  Gênero |
+| `birthday` | `string` |  Data Nascimento formato(01/01/2000) |
+| `cpf` | `string` |  CPF |
+| `phone` | `string` |  Telefone |
+| `college` | `string` |  Instituição de ensino superior  |
+| `crm` | `string` |  CRM |
+| `specialization` | `ENUM` |  values: ['clínico_geral', 'anestesista', 'dermatologia', 'ginecologia', 'neurologia', 'pediatria', 'psiquiatria', 'ortopedia'] defaultValue: clínico_geral' |
+| `status` | `ENUM` |  values: ['ativo','inativo'],    defaultValue: 'ativo' |
+| `servicesPerdomed` | `string` |  defaultValue: '0' |
+
+Response: 
+
+HTTP Status Code 200 (OK)
+
+HTTP Status Code 400 (Bad Request)
+
+HTTP Status Code 404 (Not Found) em caso de não ser encontrado registro com o código informado
+
+#### O sistema irá atualizar apenas os campos enviados via body no formado de JSON
+
+
+--------------------------------
+
+
+#### Atualiza Status de um medicos
+
+```http
+  PUT /api/medicos/{id}/status=""
+```
+
+No corpo da request, informar objeto json com os campos
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `id`      | `INTEGER` | **Obrigatório**. O ID do Paciente que você quer atualizar |
+| `status` | `ENUM` |  values: ['ativo', 'inativo'] - defaultValue: 'ativo' |
+
+
+#### Atualiza Status de um medico só serão aceitos as strings descrita no status, caso seja enviado um status diferente o sistema irá retornar um erro.
+
+
+--------------------------------
+
+
+#### Recebe todos os medicos cadastrados na base, sendo possível filtrar via "query params". 
+Exemplo: /api/medicos?status=ativo
+O sistema irá listar todos os medicos que se encaixe no status passado via query params(ativo ou inativo).
+
+```http
+  GET /api/medicos/
+```
+
+
+Response: 
+
+HTTP Status Code 200 (OK), com a lista de medicos.
+
+
+--------------------------------
+
+#### Exclusão de médico
+
+```http
+  GET /api/medicos/{id}
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `id`      | `INTEGER` | **Obrigatório**. O ID do Médico que você quer deletar|
+
+Response:
+
+HTTP Status Code 204 (No Content) em caso de sucesso, sem necessidade de response body.
+
+HTTP Status Code 404 (Not Found) em caso de requisição com código não existente na base de dados.
+
+
+--------------------------------------
+
+#### Cadastro de Enfermeiro(a)
+
+```http
+  POST /api/enfermeiros
+```
+No corpo da request, informar objeto json com os campos
+
+| Parâmetro   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+| `name` | `string` | **Obrigatório**. Nome  |
+| `gender` | `string` |  Gênero |
+| `birthday` | `string` | **Obrigatório**. Data Nascimento formato(01/01/2000) |
+| `cpf` | `string` | **Obrigatório**. CPF |
+| `phone` | `string` |  Telefone |
+| `college` | `string` | **Obrigatório**. Instituição de ensino superior  |
+| `corem` | `string` | **Obrigatório**. Coren |
+
+
+```http
+
+```http
+Exemplo:
+
+{
+	"name": "Reinaldo Porto",
+	"gender": "Masculino",
+	"birthday": "01/12/1988",
+	"cpf":"12345678901",
+	"phone":"16-90000 0000",
+	"college":"USP",
+	"corem":"123456"	
+}
+
+Retorno:
+
+{
+	"msg": "Cadastro Reinaldo Porto efetuado com sucesso!",
+	"dados": {    		
+		"id": 3,
+		"name": "Reinaldo Porto",
+		"gender": "Masculino",
+		"birthday": "1988-01-12",
+		"cpf": "12345678901",
+		"phone": "16-90000 0000",
+		"college": "USP",
+		"corem": "123456",		
+		"updatedAt": "2023-04-24T23:09:29.851Z",
+		"createdAt": "2023-04-24T23:09:29.851Z"
+	}
+}
+
+
+```
+Response: 
+
+HTTP Status Code 201 (CREATED) 
+
+HTTP Status Code 400 (Bad Request)
+
+HTTP Status Code 409 (Conflict) em caso de CPF já cadastrado
+
+--------------------------------
+
+#### Atualiza um médico
+
+```http
+  PUT /api/enfermeiros/{id}
+```
+No corpo da request, informar objeto json com os campos
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `name` | `string` |  Nome  |
+| `gender` | `string` |  Gênero |
+| `birthday` | `string` |  Data Nascimento formato(01/01/2000) |
+| `cpf` | `string` |  CPF |
+| `phone` | `string` |  Telefone |
+| `college` | `string` | Instituição de ensino superior  |
+| `corem` | `string` |  Corem |
+
+
+Response: 
+
+HTTP Status Code 200 (OK)
+
+HTTP Status Code 400 (Bad Request)
+
+HTTP Status Code 404 (Not Found) em caso de não ser encontrado registro com o código informado
+
+#### O sistema irá atualizar apenas os campos enviados via body no formado de JSON
+
+
+--------------------------------
+
+
+#### Recebe todos os medicos cadastrados na base, sendo possível filtrar via "query params". 
+Exemplo: /api/medicos?status=ativo
+O sistema irá listar todos os medicos que se encaixe no status passado via query params(ativo ou inativo).
+
+```http
+  GET /api/enfermeiros/
+```
+
+
+Response: 
+
+HTTP Status Code 200 (OK), com a lista de Enfermeiro(a).
+
+
+--------------------------------
+
+#### Exclusão de médico
+
+```http
+  GET /api/enfermeiros/{id}
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `id`      | `INTEGER` | **Obrigatório**. O ID do Médico que você quer deletar|
+
+Response:
+
+HTTP Status Code 204 (No Content) em caso de sucesso, sem necessidade de response body.
+
+HTTP Status Code 404 (Not Found) em caso de requisição com código não existente na base de dados.
+
+--------------------------------------------
+
+#### Realizar atendimento
+
+```http
+  POST /api/atendimentos
+```
+
+No corpo da request, informar objeto json com os campos de identificador do paciente e identificador do médico
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `patientId`      | `INTEGER` | **Obrigatório**. O ID do Paciente que você quer atualizar|
+| `doctorId`      | `INTEGER` | **Obrigatório**. O ID do Médico que você quer atualizarr|
+| `status`      | `String` | **Obrigatório**. Status do paciente que você quer atualizar|
