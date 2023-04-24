@@ -16,17 +16,17 @@ No corpo da request, informar objeto json com os campos
 
 | Parâmetro   | Tipo       | Descrição                           |
 | :---------- | :--------- | :---------------------------------- |
-| `name` | `string` | **Obrigatório**. Nome  |
-| `gender` | `string` |  Gênero |
-| `birthday` | `string` | **Obrigatório**. Data Nascimento formato(01/01/2000) |
-| `cpf` | `string` | **Obrigatório**. CPF |
-| `phone` | `string` |  Telefone |
-| `emergencyContact` | `string` | **Obrigatório**. Contato de Emergência  |
-| `allergy` | `string` |  Alergias |
-| `specificCare` | `string` |  Cuidados específicos |
-| `healthInsurance` | `string` |  Convênio |
+| `name` | `String` | **Obrigatório**. Nome  |
+| `gender` | `String` |  Gênero |
+| `birthday` | `String` | **Obrigatório**. Data Nascimento formato(01/01/2000) |
+| `cpf` | `String` | **Obrigatório**. CPF |
+| `phone` | `String` |  Telefone |
+| `emergencyContact` | `String` | **Obrigatório**. Contato de Emergência  |
+| `allergy` | `String` |  Alergias |
+| `specificCare` | `String` |  Cuidados específicos |
+| `healthInsurance` | `String` |  Convênio |
 | `status` | `ENUM` |  values: ['aguardando_atendimento', 'em_atendimento', 'atendido', 'nao_atendido'] - defaultValue: 'nao_atendido' |
-| `servicesPerdomed` | `string` |  defaultValue: '0' |
+| `servicesPerdomed` | `String` |  defaultValue: '0' |
 
 ```http
   Exemplo de uso:
@@ -86,17 +86,17 @@ No corpo da request, informar objeto json com os campos
 | Parâmetro   | Tipo       | Descrição                                   |
 | :---------- | :--------- | :------------------------------------------ |
 | `id`      | `INTEGER` | **Obrigatório**. O ID do Paciente que você quer atualizar |
-| `name` | `string` |  Nome  |
-| `gender` | `string` |  Gênero |
-| `birthday` | `string` |  Data Nascimento formato(01/01/2000) |
-| `cpf` | `string` |  CPF |
-| `phone` | `string` |  Telefone |
-| `emergencyContact` | `string` | Contato de Emergência  |
-| `allergy` | `string` |  Alergias |
-| `specificCare` | `string` |  Cuidados específicos |
-| `healthInsurance` | `string` |  Convênio |
+| `name` | `String` |  Nome  |
+| `gender` | `String` |  Gênero |
+| `birthday` | `String` |  Data Nascimento formato(01/01/2000) |
+| `cpf` | `String` |  CPF |
+| `phone` | `String` |  Telefone |
+| `emergencyContact` | `String` | Contato de Emergência  |
+| `allergy` | `String` |  Alergias |
+| `specificCare` | `String` |  Cuidados específicos |
+| `healthInsurance` | `String` |  Convênio |
 | `status` | `ENUM` |  values: ['aguardando_atendimento', 'em_atendimento', 'atendido', 'nao_atendido'] - defaultValue: 'nao_atendido' |
-| `servicesPerdomed` | `string` |  defaultValue: '0' |
+| `servicesPerdomed` | `String` |  defaultValue: '0' |
 
 Response: 
 
@@ -126,7 +126,7 @@ No corpo da request, informar objeto json com os campos
 | `status` | `ENUM` |  values: ['aguardando_atendimento', 'em_atendimento', 'atendido', 'nao_atendido'] - defaultValue: 'nao_atendido' |
 
 
-#### Atualiza Status de um paciente só serão aceitos as strings descrita no status, caso seja enviado um status diferente o sistema irá retornar um erro.
+#### Atualiza Status de um paciente só serão aceitos as Strings descrita no status, caso seja enviado um status diferente o sistema irá retornar um erro.
 
 
 --------------------------------
@@ -189,16 +189,16 @@ No corpo da request, informar objeto json com os campos
 
 | Parâmetro   | Tipo       | Descrição                           |
 | :---------- | :--------- | :---------------------------------- |
-| `name` | `string` | **Obrigatório**. Nome  |
-| `gender` | `string` |  Gênero |
-| `birthday` | `string` | **Obrigatório**. Data Nascimento formato(01/01/2000) |
-| `cpf` | `string` | **Obrigatório**. CPF |
-| `phone` | `string` |  Telefone |
-| `college` | `string` | **Obrigatório**. Instituição de ensino superior  |
-| `crm` | `string` | **Obrigatório**. CRM |
+| `name` | `String` | **Obrigatório**. Nome  |
+| `gender` | `String` |  Gênero |
+| `birthday` | `String` | **Obrigatório**. Data Nascimento formato(01/01/2000) |
+| `cpf` | `String` | **Obrigatório**. CPF |
+| `phone` | `String` |  Telefone |
+| `college` | `String` | **Obrigatório**. Instituição de ensino superior  |
+| `crm` | `String` | **Obrigatório**. CRM |
 | `specialization` | `ENUM` |  values: ['clínico_geral', 'anestesista', 'dermatologia', 'ginecologia', 'neurologia', 'pediatria', 'psiquiatria', 'ortopedia'] defaultValue: clínico_geral' |
 | `status` | `ENUM` |  values: ['ativo','inativo'],    defaultValue: 'ativo' |
-| `servicesPerdomed` | `string` |  defaultValue: '0' |
+| `servicesPerdomed` | `String` |  defaultValue: '0' |
 
 ```http
 
@@ -256,16 +256,16 @@ HTTP Status Code 409 (Conflict) em caso de CPF já cadastrado
 No corpo da request, informar objeto json com os campos
 | Parâmetro   | Tipo       | Descrição                                   |
 | :---------- | :--------- | :------------------------------------------ |
-| `name` | `string` |  Nome  |
-| `gender` | `string` |  Gênero |
-| `birthday` | `string` |  Data Nascimento formato(01/01/2000) |
-| `cpf` | `string` |  CPF |
-| `phone` | `string` |  Telefone |
-| `college` | `string` |  Instituição de ensino superior  |
-| `crm` | `string` |  CRM |
+| `name` | `String` |  Nome  |
+| `gender` | `String` |  Gênero |
+| `birthday` | `String` |  Data Nascimento formato(01/01/2000) |
+| `cpf` | `String` |  CPF |
+| `phone` | `String` |  Telefone |
+| `college` | `String` |  Instituição de ensino superior  |
+| `crm` | `String` |  CRM |
 | `specialization` | `ENUM` |  values: ['clínico_geral', 'anestesista', 'dermatologia', 'ginecologia', 'neurologia', 'pediatria', 'psiquiatria', 'ortopedia'] defaultValue: clínico_geral' |
 | `status` | `ENUM` |  values: ['ativo','inativo'],    defaultValue: 'ativo' |
-| `servicesPerdomed` | `string` |  defaultValue: '0' |
+| `servicesPerdomed` | `String` |  defaultValue: '0' |
 
 Response: 
 
@@ -295,7 +295,7 @@ No corpo da request, informar objeto json com os campos
 | `status` | `ENUM` |  values: ['ativo', 'inativo'] - defaultValue: 'ativo' |
 
 
-#### Atualiza Status de um medico só serão aceitos as strings descrita no status, caso seja enviado um status diferente o sistema irá retornar um erro.
+#### Atualiza Status de um medico só serão aceitos as Strings descrita no status, caso seja enviado um status diferente o sistema irá retornar um erro.
 
 
 --------------------------------
@@ -345,13 +345,13 @@ No corpo da request, informar objeto json com os campos
 
 | Parâmetro   | Tipo       | Descrição                           |
 | :---------- | :--------- | :---------------------------------- |
-| `name` | `string` | **Obrigatório**. Nome  |
-| `gender` | `string` |  Gênero |
-| `birthday` | `string` | **Obrigatório**. Data Nascimento formato(01/01/2000) |
-| `cpf` | `string` | **Obrigatório**. CPF |
-| `phone` | `string` |  Telefone |
-| `college` | `string` | **Obrigatório**. Instituição de ensino superior  |
-| `corem` | `string` | **Obrigatório**. Coren |
+| `name` | `String` | **Obrigatório**. Nome  |
+| `gender` | `String` |  Gênero |
+| `birthday` | `String` | **Obrigatório**. Data Nascimento formato(01/01/2000) |
+| `cpf` | `String` | **Obrigatório**. CPF |
+| `phone` | `String` |  Telefone |
+| `college` | `String` | **Obrigatório**. Instituição de ensino superior  |
+| `corem` | `String` | **Obrigatório**. Coren |
 
 
 ```http
@@ -407,13 +407,13 @@ HTTP Status Code 409 (Conflict) em caso de CPF já cadastrado
 No corpo da request, informar objeto json com os campos
 | Parâmetro   | Tipo       | Descrição                                   |
 | :---------- | :--------- | :------------------------------------------ |
-| `name` | `string` |  Nome  |
-| `gender` | `string` |  Gênero |
-| `birthday` | `string` |  Data Nascimento formato(01/01/2000) |
-| `cpf` | `string` |  CPF |
-| `phone` | `string` |  Telefone |
-| `college` | `string` | Instituição de ensino superior  |
-| `corem` | `string` |  Corem |
+| `name` | `String` |  Nome  |
+| `gender` | `String` |  Gênero |
+| `birthday` | `String` |  Data Nascimento formato(01/01/2000) |
+| `cpf` | `String` |  CPF |
+| `phone` | `String` |  Telefone |
+| `college` | `String` | Instituição de ensino superior  |
+| `corem` | `String` |  Corem |
 
 
 Response: 
