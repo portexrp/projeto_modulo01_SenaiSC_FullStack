@@ -165,7 +165,7 @@ HTTP Status Code 404 (Not Found) em caso de não ser encontrado registro com o c
 #### Exclusão de Paciente
 
 ```http
-  GET /api/pacientes/{id}
+  DELETE /api/pacientes/{id}
 ```
 
 | Parâmetro   | Tipo       | Descrição                                   |
@@ -320,7 +320,7 @@ HTTP Status Code 200 (OK), com a lista de medicos.
 #### Exclusão de médico
 
 ```http
-  GET /api/medicos/{id}
+  DELETE /api/medicos/{id}
 ```
 
 | Parâmetro   | Tipo       | Descrição                                   |
