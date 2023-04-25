@@ -351,7 +351,7 @@ No corpo da request, informar objeto json com os campos
 | `cpf` | `String` | **Obrigatório**. CPF |
 | `phone` | `String` |  Telefone |
 | `college` | `String` | **Obrigatório**. Instituição de ensino superior  |
-| `corem` | `String` | **Obrigatório**. Coren |
+| `cofen` | `String` | **Obrigatório**. Coren |
 
 
 ```http
@@ -366,7 +366,7 @@ Exemplo:
 	"cpf":"12345678901",
 	"phone":"16-90000 0000",
 	"college":"USP",
-	"corem":"123456"	
+	"cofen":"123456"	
 }
 
 Retorno:
@@ -381,7 +381,7 @@ Retorno:
 		"cpf": "12345678901",
 		"phone": "16-90000 0000",
 		"college": "USP",
-		"corem": "123456",		
+		"cofen": "123456",		
 		"updatedAt": "2023-04-24T23:09:29.851Z",
 		"createdAt": "2023-04-24T23:09:29.851Z"
 	}
@@ -413,7 +413,7 @@ No corpo da request, informar objeto json com os campos
 | `cpf` | `String` |  CPF |
 | `phone` | `String` |  Telefone |
 | `college` | `String` | Instituição de ensino superior  |
-| `corem` | `String` |  Corem |
+| `cofen` | `String` |  Cofen |
 
 
 Response: 
