@@ -351,7 +351,7 @@ No corpo da request, informar objeto json com os campos
 | `cpf` | `String` | **Obrigatório**. CPF |
 | `phone` | `String` |  Telefone |
 | `college` | `String` | **Obrigatório**. Instituição de ensino superior  |
-| `cofen` | `String` | **Obrigatório**. Coren |
+| `cofen` | `String` | **Obrigatório**. Cofen |
 
 
 ```http
